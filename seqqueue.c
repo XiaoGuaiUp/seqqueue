@@ -100,7 +100,7 @@ void SeqPrintChar(SeqQueue* q,const char* msg)
     size_t i=0;
     for(;i<q->size;++i)
     {
-        printf("[ %c ]",q->data[i]);
+        printf("[ %c ]",q->data[q->head+i]);
     }
     printf("\n");
     return;
@@ -113,21 +113,21 @@ void Test()
     SeqQueue q;
     SeqQueueInit(&q);
 
-    printf("测试入栈（尾插) 4 个元素\n");
+    printf("测试入队列（尾插) 4 个元素\n");
     SeqQueuePush(&q,'a');
     SeqQueuePush(&q,'b');
     SeqQueuePush(&q,'c');
     SeqQueuePush(&q,'d');
-    SeqPrintChar(&q,"入栈尾插4个元素");
+    SeqPrintChar(&q,"入队列尾插4个元素");
 
     SeqQueuePop(&q);
-    SeqPrintChar(&q,"出栈一个元素");
+    SeqPrintChar(&q,"出队列一个元素");
     SeqQueuePop(&q);
     SeqPrintChar(&q,"再出栈一个元素");
 
     SeqQueueType* value=NULL;
     int ret=SeqQueueTop(&q,value);
-    printf("取栈顶元素的返回值为%d\n",ret);
+    printf("取队首元素的返回值为%d\n",ret);
 }
 
 
